@@ -14,7 +14,6 @@ public class JogadorService {
 
     private JogadorRepository jogadorRepository;
 
-
     public Jogador salvar(JogadorDto dto) {
         var jogador = new Jogador(dto);
 

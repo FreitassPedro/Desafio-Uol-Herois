@@ -11,11 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @AllArgsConstructor
 public class JogadorController {
+
     private JogadorService jogadorService;
 
     @PostMapping("/salvarJogador")
     public String salvar(JogadorDto dto) {
         jogadorService.salvar(dto);
-        return "redirect/jogador/listar";
+        return "redirect:/";
+    }
+
+   @GetMapping("/jogadorForm")
+    public String mostrarJogadorForm(JogadorDto dto) {
+        return "jogador-form";
     }
 }
