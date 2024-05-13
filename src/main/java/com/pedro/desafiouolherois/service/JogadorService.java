@@ -13,11 +13,13 @@ import java.util.List;
 public class JogadorService {
 
     private JogadorRepository jogadorRepository;
-
+    private GrupoService grupoService;
     public Jogador salvar(JogadorDto dto) {
         var jogador = new Jogador(dto);
 
-        jogador.setCodinome("XXXXXXX");
+        var codinome = grupoService.getCodinome(dto.grupo());
+
+        jogador.setCodinome(codinome);
         return jogadorRepository.save(jogador);
     }
 
